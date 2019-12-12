@@ -1,16 +1,19 @@
 {% extends 'base.html' %} {% block content %} {% for recipe in recipes %} {{recipe.category_name}} {{recipe.recipe_name}} {{recipe.serves}} {{recipe.time}} {{recipe.ingredients}} {{recipe.recipe_description}} {{recipe.favourite}} {% endfor %}
 
+<h3>Recipes</h2>
 <ul class="collapsible">
     {% for recipe in recipes %}
     <li>
-        <div class="collapsible-header"><i class="material-icons">filter_drama</i> {{recipe.recipe_name}} - {{recipe.time}} - {{recipe.serves}}
+        <div class="collapsible-header"><i class="material-icons">expand_more</i> <strong>{{task.task_name}}</strong> - {{task.due_date}}
         </div>
         <div class="collapsible-body">
             <span>
-                {{recipe.recipe_description}} - {{recipe.ingredients}}
+                {{task.task_description}}
             </span>
         </div>
     </li>
     {% endfor %}
+    
 </ul>
+
 {% endblock %}
