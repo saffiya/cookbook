@@ -4,11 +4,11 @@
 <ul class="collapsible">
     {% for recipe in recipes %}
     <li>
-        <div class="collapsible-header"><i class="material-icons">expand_more</i> <strong>{{task.task_name}}</strong> - {{task.due_date}}
+        <div class="collapsible-header"><i class="material-icons">expand_more</i> <strong>{{recipe.recipe_name}}</strong> - {{recipe.time}}
         </div>
         <div class="collapsible-body">
             <span>
-                {{task.task_description}}
+                {{recipe.recipe_description}}
             </span>
         </div>
     </li>
