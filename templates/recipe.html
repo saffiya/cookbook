@@ -1,10 +1,28 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <div class="row">
+    <h2 class="col-md-7">{{ recipe.name }}</h2>
     <div class="col-md-5">
-        <img src="{{ recipe.image_source }}" alt
+        <img src="{{ recipe.image_source }}" alt="Image of {{ recipe.name }}" />
     </div>
 </div>
+<div class="row">
+    <h4 class="col-md-2">{{ recipe.time }}</h4>
+    <h4 class="col-md-2">Serves {{ recipe.serves }}</h4>
+    <h4 class="col-md-2">{{ recipe.difficulty }}</h4>
+</div>
 
+<div class="col-md-12">
+    <p>{{ recipe.description }}</p>
+</div>
+
+<div class="col-md-12">
+    <h6>Ingredients</h6>
+    <p>{{ recipe.ingredients }}</p>
+    <h6>Method</h6>
+    <p>{{ recipe.method_one }}</p>
+    <p>{{ recipe.method_two }}</p>
+    <p>{{ recipe.method_three }}</p>
+    <p>{{ recipe.method_four }}</p>
+</div>
 {% endblock %}

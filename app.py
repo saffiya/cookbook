@@ -41,7 +41,7 @@ def recipes_recipe(recipe_name):
             if obj["url"] == recipe_name:
                 recipe = obj
                 
-    return "<h1>" + recipe["name"] + "</h1>"            
+    return render_template("recipe.html", recipe=recipe)           
     
     
 if __name__ == '__main__':
