@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -11,11 +12,36 @@ mongo = PyMongo(app)
 
 @app.route('/')
 
-@app.route('/get_recipes')
-def get_recipes():
-    recipes=mongo.db.recipes.find()
-    print(recipes)
-    return render_template("recipes.html", recipes=recipes)
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html", page_title="About")
+    
+@app.route("/products")
+def products():
+    return render_template("products.html", page_title="Our Products")
+    
+@app.route("/recipes")
+def recipes():
+    data = []
+    with open("data/recipes.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("recipes.html", page_title="Recipes", recipes=data)
+    
+@app.route("/recipes/<recipe_name>") 
+def recipes_recipe(recipe_name):
+    recipe = {}
+    
+    with open("data/recipes.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == recipe_name:
+                recipe = obj
+                
+    return "<h1>" + recipe["name"] + "</h1>"            
     
     
 if __name__ == '__main__':

@@ -1,0 +1,70 @@
+[{
+        "name": "Griddled Chicken with mustardy lentil salad ",
+        "time": "30 minutes",
+        "serves": "3",
+        "difficulty": "Easy",
+        "description": "Vibrant chicken salad with crunchy green beans, seasonal mangetout and lentils. This quick and easy salad is low calorie and ready in 30 minutes – the perfect way to start the week",
+        "image_source": "https://images.immediate.co.uk/production/volatile/sites/2/2018/07/OLI_0718-Healthy_GrilledChickenLentils_025094-9422856.jpg?webp=true&quality=45&crop=20px%2C1343px%2C5444px%2C2342px&resize=1880%2C799",
+        "url": "griddled_chicken_with_mustardy_lentil_salad"
+    },
+    {
+        "name": "Miso Shiitake Ramen ",
+        "time": "20 minutes",
+        "serves": "2",
+        "difficulty": "Easy",
+        "description": "In need of a healthy yet warming midweek meal? Try our low calorie, vegan miso shiitake mushroom ramen for an easy dinner for two",
+        "image_source": "https://images.immediate.co.uk/production/volatile/sites/2/2018/01/OLI0118-BumperHealthy-MisoShiitakeRamen_020257-4ceeaeb.jpg?webp=true&quality=45&crop=16px%2C3470px%2C6083px%2C2585px&resize=1880%2C799",
+        "url": "miso_shiitake_ramen"
+
+    },
+    {
+        "name": "Mexican Salad Tortilla Bowls",
+        "time": "20 minutes",
+        "serves": "4",
+        "difficulty": "Easy",
+        "description": "Check out these vibrant vegan Mexican salad bowls. This quick and easy recipe is super fresh and has just the right amount of spice and zing - ready in 20 minutes",
+        "image_source": "https://images.immediate.co.uk/production/volatile/sites/2/2018/02/OLI0318-Healthy-MexicanSaladTortillaBowls_020430-ee7b46a.jpg?webp=true&quality=45&resize=1880%2C799",
+        "url": "mexican_salad_tortilla_bowls"
+
+    },
+    {
+        "name": "One-pot paprika cod and chickpeas",
+        "time": "30 minutes",
+        "serves": "4",
+        "difficulty": "Easy",
+        "description": "Check out our punchy paprika cod one-pot with juicy tomatoes. This simple tray bake is an easy, low calorie midweek meal for when you're short on time but still want something healthy",
+        "image_source": "https://images.immediate.co.uk/production/volatile/sites/2/2018/04/one-pot-cod_charlie-richards-e56f6c2.jpg?webp=true&quality=45&resize=1880%2C799",
+        "url": "one-pot_paprika_cod_and_chickpeas"
+
+    },
+    {
+        "name": "Courgetti with pesto and balsamic tomatoes",
+        "time": "15 minutes",
+        "serves": "1",
+        "difficulty": "Easy",
+        "description": "Who needs pasta when you can have spiralized courgette? Try our easy 'courgetti' recipe, made with baby plum tomatoes, garlic, pesto, pine nuts and a lot of courgette noodles",
+        "image_source": "https://images.immediate.co.uk/production/volatile/sites/2/2015/02/4270.jpg?webp=true&quality=90&resize=600%2C255",
+        "url": "courgetti_with_pesto_and_balsamic_tomatoes"
+
+    },
+    {
+        "name": "MASH Burger",
+        "time": "30 minutes",
+        "serves": "4",
+        "difficulty": "Easy",
+        "description": "Check out our recipe for the ultimate veggie burger packed with mushroom, avocado, spinach and halloumi - ready in just 30 minutes",
+        "image_source": "https://images.immediate.co.uk/production/volatile/sites/2/2018/10/OLI-1018_Everyday-MASHBurger_28549-13fca05.jpg?webp=true&quality=45&resize=1880%2C799",
+        "url": "mash_burger"
+
+    },
+    {
+        "name": "Gnochi with kale and dolcelatte",
+        "time": "20 minutes",
+        "serves": "2",
+        "difficulty": "Easy",
+        "description": "Our super simple vegetarian gnocchi recipe with kale and dolcelatte is soft and creamy, plus it's quick and easy to make",
+        "image_source": "https://images.immediate.co.uk/production/volatile/sites/2/2017/08/Gnocchi-with-Kale-and-Dolcelatte.jpg?webp=true&quality=45&resize=1880%2C799",
+        "url": "gnochi_with_kale_and_dolcelatte"
+
+    }
+]

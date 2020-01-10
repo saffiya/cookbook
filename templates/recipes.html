@@ -1,19 +1,41 @@
-{% extends 'base.html' %} {% block content %} {% for recipe in recipes %} {{recipe.category_name}} {{recipe.recipe_name}} {{recipe.serves}} {{recipe.time}} {{recipe.ingredients}} {{recipe.recipe_description}} {{recipe.favourite}} {% endfor %}
+{% extends 'base.html' %} {% block content %}
 
-<h3>Recipes</h2>
-<ul class="collapsible">
-    {% for recipe in recipes %}
-    <li>
-        <div class="collapsible-header"><i class="material-icons">expand_more</i> <strong>{{recipe.recipe_name}}</strong> - {{recipe.time}}
-        </div>
-        <div class="collapsible-body">
-            <span>
-                {{recipe.recipe_description}}
-            </span>
-        </div>
-    </li>
-    {% endfor %}
+<h2>{{ page_title }}</h2>
+
+{% for recipe in recipes %}
+
+
+<div class="row featurette">
+
+    {% if loop.index % 2 != 0 %}
+
+    <div class="col-md-7">
+        <h3><a href="/recipes/{{ recipe.url }}">{{ loop.index }}. {{ recipe.name }}</a></h3>
+        <h5>{{ recipe.time }}</h5>
+        <h5>{{ recipe.serves }}</h5>
+        <h5>{{ recipe.difficulty }}</h5>
+        <p>
+            {{ recipe.description }}
+        </p>
+    </div>
+    <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="{{ recipe.image_source }}">
+    </div>
+    {% else %}
     
-</ul>
+    <div class="col-md-5">
+        <img class="featurette-image img-responsive" src="{{ recipe.image_source }}">
+    </div>
+    <div class="col-md-7">
+        <h3><a href="/recipes/{{ recipe.url }}">{{ loop.index }}. {{ recipe.name }}</a></h3>
+        <h5>{{ recipe.time }}</h5>
+        <h5>{{ recipe.serves }}</h5>
+        <h5>{{ recipe.difficulty }}</h5>
+        <p>
+            {{ recipe.description }}
+        </p>
+    </div>
+    {% endif %}
 
-{% endblock %}
+</div>
+<hr class="featurette-divider"> {% endfor %} {% endblock %}
