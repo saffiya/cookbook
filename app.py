@@ -18,11 +18,15 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About")
+    return render_template("about.html", page_title="About Us")
     
 @app.route("/products")
 def products():
     return render_template("products.html", page_title="Our Products")
+    
+@app.route("/addrecipe.html")
+def addrecipe():
+    return render_template("addrecipe.html", page_title="Add Your Recipe")    
     
 @app.route("/recipes")
 def recipes():

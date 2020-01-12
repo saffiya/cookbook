@@ -83,6 +83,8 @@
         "description": "Our super simple vegetarian gnocchi recipe with kale and dolcelatte is soft and creamy, plus it's quick and easy to make",
         "image_source": "https://images.immediate.co.uk/production/volatile/sites/2/2017/08/Gnocchi-with-Kale-and-Dolcelatte.jpg?webp=true&quality=45&resize=1880%2C799",
         "url": "gnochi_with_kale_and_dolcelatte",
-        "ingredients": "gnocchi 1 large pack (around 400g), kale 150g (chopped and woody stems discarded), dolcelatte 100g (chopped into chunks), half-fat crème fraîche 200ml, green salad to serve"
+        "ingredients": "gnocchi 1 large pack (around 400g), kale 150g (chopped and woody stems discarded), dolcelatte 100g (chopped into chunks), half-fat crème fraîche 200ml, green salad to serve",
+        "method_one": "STEP 1 Cook the gnocchi in boiling salted water following the pack instructions. Scoop out with a slotted spoon into a sieve then use the same water to cook the kale for 5 minutes. Drain well in a colander then tip the kale back into the empty pan and stir in the cheese and crème fraîche.",
+        "method_two": "STEP 2 Toss through the gnocchi, then tip everything into a small baking dish. Grill until bubbling and golden, and eat with the green salad."
     }
 ]
