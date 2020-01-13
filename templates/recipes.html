@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h2>{{ page_title }}</h2>
+<h3>{{ page_title }}</h3>
 
 {% for recipe in recipes %}
 
@@ -10,10 +10,10 @@
     {% if loop.index % 2 != 0 %}
 
     <div class="col-md-7">
-        <h3><a href="/recipes/{{ recipe.url }}">{{ loop.index }}. {{ recipe.name }}</a></h3>
-        <h5>{{ recipe.time }}</h5>
-        <h5>Serves {{ recipe.serves }}</h5>
-        <h5>{{ recipe.difficulty }}</h5>
+        <h4><a href="/recipes/{{ recipe.url }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
+        <h6>{{ recipe.time }}</h6>
+        <h6>Serves {{ recipe.serves }}</h6>
+        <h6>{{ recipe.difficulty }}</h6>
         <p>
             {{ recipe.description }}
         </p>
@@ -27,10 +27,10 @@
         <img class="featurette-image img-responsive" src="{{ recipe.image_source }}">
     </div>
     <div class="col-md-7">
-        <h3><a href="/recipes/{{ recipe.url }}">{{ loop.index }}. {{ recipe.name }}</a></h3>
-        <h5>{{ recipe.time }}</h5>
-        <h5>Serves {{ recipe.serves }}</h5>
-        <h5>{{ recipe.difficulty }}</h5>
+        <h4><a href="/recipes/{{ recipe.url }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
+        <h6>{{ recipe.time }}</h6>
+        <h6>Serves {{ recipe.serves }}</h6>
+        <h6>{{ recipe.difficulty }}</h6>
         <p>
             {{ recipe.description }}
         </p>

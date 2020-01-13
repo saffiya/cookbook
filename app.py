@@ -26,7 +26,8 @@ def products():
     
 @app.route("/addrecipe.html")
 def addrecipe():
-    return render_template("addrecipe.html", page_title="Add Your Recipe")    
+    return render_template("addrecipe.html", 
+    categories=mongo.db.categories.find(), page_title="Add A Recipe")  
     
 @app.route("/recipes")
 def recipes():
