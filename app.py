@@ -15,6 +15,11 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
     return render_template("index.html")
+    
+@app.route('/get_recipes')
+def get_recipes():
+    return render_template("recipe.html", recipes=mongo.db.recipes.find())
+
 
 @app.route("/about")
 def about():
@@ -29,11 +34,11 @@ def addrecipe():
     return render_template("addrecipe.html", 
     categories=mongo.db.categories.find(), page_title="Add A Recipe") 
 
-#@app.route('/insert_recipe', methods=['POST'])
-#def insert_recipe():
-    #recipes = mongo.db.recipes
-    #recipes.insert_one(request.form.to_dict())
-    #return redirect(url_for('get_recipes'))
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('get_recipes'))
     
 @app.route("/recipes")
 def recipes():
@@ -53,7 +58,6 @@ def recipes_recipe(recipe_name):
                 recipe = obj
                 
     return render_template("recipe.html", recipe=recipe)           
-    
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

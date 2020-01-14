@@ -2,21 +2,17 @@
 <h3>{{ page_title }}</h3>
 
 <div class="row">
-    <form action="" method="POST" class="col s12">
+    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">create</i>
                 <input id="name" name="name" type="text" class="validate">
                 <label for="icon_prefix">Recipe Name</label>
             </div>
-            <div class="file-field input-field col s6">
-                <div class="btn">
-                    <span>Image</span>
-                    <input type="file">
-                </div>
-                <div class="file-path-wrapper">
-                    <input id="image_source" name="image_source" class="file-path validate" type="text" placeholder="Upload your recipes image">
-                </div>
+             <div class="input-field col s6">
+                <i class="material-icons prefix">add_a_photo</i>
+                <input id="image_source" name="image_source" type="text" class="validate">
+                <label for="icon_prefix">Image URL</label>
             </div>
         </div>
         <div class="row">
@@ -44,7 +40,7 @@
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">poll</i>
-                    <select id="category" name="category_name">
+                    <select multiple id="category" name="category_name">
                         <option value="" disabled selected>Choose Category</option>
                         {% for cat in categories %}
                             <option value="{{cat.category_name}}">{{cat.category_name}}</option>
