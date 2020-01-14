@@ -10,7 +10,7 @@
     {% if loop.index % 2 != 0 %}
 
     <div class="col-md-7">
-        <h4><a href="/recipes/{{ recipe.url }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
+        <h4><a href="{{ url_for("recipes_recipe", recipe_id=recipe._id, sluggify_url=recipe.sluggify_url) }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
         <h6>{{ recipe.time }}</h6>
         <h6>Serves {{ recipe.serves }}</h6>
         <h6>{{ recipe.difficulty }}</h6>
@@ -27,7 +27,7 @@
         <img class="featurette-image img-responsive" src="{{ recipe.image_source }}">
     </div>
     <div class="col-md-7">
-        <h4><a href="/recipes/{{ recipe.url }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
+        <h4><a href="{{ url_for("recipes_recipe", recipe_id=recipe._id, sluggify_url=recipe.sluggify_url) }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
         <h6>{{ recipe.time }}</h6>
         <h6>Serves {{ recipe.serves }}</h6>
         <h6>{{ recipe.difficulty }}</h6>

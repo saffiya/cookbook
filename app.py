@@ -3,6 +3,7 @@ import json
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from slugify import slugify
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'cookbook'
@@ -16,9 +17,9 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
     
-@app.route('/get_recipes')
-def get_recipes():
-    return render_template("recipe.html", recipes=mongo.db.recipes.find())
+# @app.route('/get_recipes')
+# def get_recipes():
+    # return render_template("recipe.html", recipes=mongo.db.recipes.find())
 
 
 @app.route("/about")
@@ -36,27 +37,20 @@ def addrecipe():
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
+    sluggify_url = slugify(request.form.get("name"))
     recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
-    return redirect(url_for('get_recipes'))
+    recipe_id = recipes.insert_one(request.form.to_dict())
+    recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$push': {'sluggify_url': sluggify_url}})
+    return redirect(url_for('recipes_recipe', recipe_id = recipe_id.inserted_id, sluggify_url = sluggify_url))
     
 @app.route("/recipes")
 def recipes():
-    data = []
-    with open("data/recipes.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template("recipes.html", page_title="Recipes", recipes=data)
+    recipes = mongo.db.recipes.find()
+    return render_template("recipes.html", page_title="Recipes", recipes=recipes)
     
-@app.route("/recipes/<recipe_name>") 
-def recipes_recipe(recipe_name):
-    recipe = {}
-    
-    with open("data/recipes.json", "r") as json_data:
-        data = json.load(json_data)
-        for obj in data:
-            if obj["url"] == recipe_name:
-                recipe = obj
-                
+@app.route("/recipes/<recipe_id>/<sluggify_url>") 
+def recipes_recipe(recipe_id, sluggify_url):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipe.html", recipe=recipe)           
     
 if __name__ == '__main__':

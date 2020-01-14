@@ -1,5 +1,4 @@
 {% extends "base.html" %} {% block content %}
-{% for recipes in recipe %}
 
 <div class="row">
     <h4 class="col-md-7">{{ recipe.name }}</h4>
@@ -29,5 +28,4 @@
     <p>{{ recipe.method_three }}</p>
     <p>{{ recipe.method_four }}</p>
 </div>
-{% endfor %}
 {% endblock %}
