@@ -40,7 +40,8 @@ def insert_recipe():
     sluggify_url = slugify(request.form.get("name"))
     recipes = mongo.db.recipes
     recipe_id = recipes.insert_one(request.form.to_dict())
-    recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$push': {'sluggify_url': sluggify_url}})
+    myrecipe = { }
+    recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$set': {'sluggify_url': sluggify_url}})
     return redirect(url_for('recipes_recipe', recipe_id = recipe_id.inserted_id, sluggify_url = sluggify_url))
     
 @app.route("/recipes")
