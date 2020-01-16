@@ -6,12 +6,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">create</i>
-                <input id="name" name="name" type="text" class="validate">
+                <input id="name" name="name" type="text" class="validate" required>
                 <label for="icon_prefix">Recipe Name</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">add_a_photo</i>
-                <input id="image_source" name="image_source" type="text" class="validate">
+                <input id="image_source" name="image_source" type="text" class="validate" required>
                 <label for="icon_prefix">Image URL</label>
             </div>
         </div>
@@ -19,19 +19,19 @@
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">access_time</i>
-                    <input id="time" name="time" type="number" class="validate">
+                    <input id="time" name="time" type="number" class="validate" required>
                     <label for="icon_prefix">Time</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">supervisor_account</i>
-                    <input id="serves" name="serves" type="number" class="validate">
+                    <input id="serves" name="serves" type="number" class="validate" required>
                     <label for="icon_telephone">Serves</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">poll</i>
-                    <select id="difficulty" name="difficulty">
+                    <select id="difficulty" name="difficulty" required>
                         <option value="" disabled selected>Choose The Difficulty</option>
                         <option value="Easy">Easy</option>
                         <option value="Medium">Medium</option>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">poll</i>
-                    <select multiple id="category" name="category_name">
+                    <select multiple id="category" name="category_name" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for cat in categories %}
                             <option value="{{cat.category_name}}">{{cat.category_name}}</option>
@@ -52,14 +52,14 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <textarea name="description" id="description" class="materialize-textarea"></textarea>
+                <textarea name="description" id="description" class="materialize-textarea" required></textarea>
                 <label for="icon_prefix">Description</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">local_grocery_store</i>
-                <textarea name="ingredients" id="ingredients" class="materialize-textarea"></textarea>
+                <textarea name="ingredients" id="ingredients" class="materialize-textarea" required></textarea>
                 <label for="icon_prefix">Ingredients</label>
             </div>
         </div>
@@ -67,7 +67,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">local_dining</i>
-                <textarea name="method_one" id="method_one" class="materialize-textarea"></textarea>
+                <textarea name="method_one" id="method_one" class="materialize-textarea" required></textarea>
                 <label for="icon_prefix">Step One</label>
             </div>
         </div>
