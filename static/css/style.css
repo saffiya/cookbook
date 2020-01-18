@@ -5,3 +5,18 @@
 .btn {
    padding: 0px 0px;
 }
+
+#alerts {
+    position: absolute;
+    display: none;
+    min-height: 50px;
+    top: 95%;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+#alerts p {
+    margin: 10px 0px;
+}
