@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.min.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
 
+
     <title>Home Page</title>
 </head>
 
@@ -44,13 +45,14 @@
                     <li class="nav-item hidden-md-down">
                         <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
                     </li>
-                    {% endif %}
+                    {% else %}
                     <li class="nav-item hidden-md-down {% if 'register' in request.path %} active {% endif %}">
                         <a class="nav-link" href="{{url_for('register')}}">Register</a>
                     </li>
                     <li class="nav-item hidden-md-down {% if 'login' in request.path %} active {% endif %}">
                         <a class="nav-link" href="{{url_for('login')}}">Login</a>
-                    </li> 
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -67,6 +69,7 @@
     </nav>
 
     <!-- Page Header -->
+    {% if session.user %}
     <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/spices_background.jpeg') }}')">
         <div class="overlay"></div>
         <div class="container">
@@ -74,12 +77,31 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
                         <h2>Healthy Recipes</h2>
-                        <span class="subheading">Clean, healthy recipes to spice up your life. Enjoy out collection of healthy recipes and if you have any that youd like to share please log in and add your personal favourites. To make your life even easier, check out our products page for our range of kitchen tools. </span>
+                        <span class="subheading">Clean, healthy recipes to spice up your life. Enjoy our collection of healthy recipes and if you have any that you'd like to share click the button below. To make your life even easier, check out our products page for our range of kitchen tools. 
+                        </span>
+                        <div class="button">
+                            <a class="waves-effect waves-light btn" href="{{ url_for('addrecipe') }}">Add Recipe</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+    {% else %}
+    <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/spices_background.jpeg') }}')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h2>Healthy Recipes</h2>
+                        <span class="subheading">Clean, healthy recipes to spice up your life. Enjoy our collection of healthy recipes and if you have any that you'd like to share please log in and add your personal favourites. To make your life even easier, check out our products page for our range of kitchen tools. </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endif %}
 
     <!-- Main Content -->
     <div class="container">
