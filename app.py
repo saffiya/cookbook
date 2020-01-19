@@ -7,6 +7,7 @@ from slugify import slugify
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
+
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'cookbook'
 app.config["MONGO_URI"] = 'mongodb+srv://saffiya:St4rl1ght@myfirstcluster-ysd9s.mongodb.net/cookbook?retryWrites=true&w=majority'
@@ -32,6 +33,33 @@ def products():
 def addrecipe():
     return render_template("addrecipe.html", 
     categories=mongo.db.categories.find(), page_title="Add A Recipe") 
+    
+@app.route('/edit_recipe/<recipe_id>')  
+def edit_recipe(recipe_id):
+	the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+	all_categories = mongo.db.categories.find()
+	return render_template('editrecipe.html', recipe=the_recipe, categories=all_categories, page_title="Edit Recipe")
+	
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])	
+def update_recipe(recipe_id):
+	recipes = mongo.db.recipes
+	recipes.update( {'_id': ObjectId(recipe_id)},
+	{
+		'name':request.form.get['recipe.name'],
+		'time':request.form.get['recipe.time'],
+		'serves':request.form.get['recipe.serves'],
+		'difficulty':request.form.get['recipe.difficulty'],
+		'category_name':request.form.get['recipe.category_name'],
+		'description':request.form.get['recipe.description'],
+		'image_source':request.form.get['recipe.image_source'],
+		'ingredients':request.form.get['recipe.ingredients'],
+		'method_one':request.form.get['recipe.method_one'],
+		'method_two':request.form.get['recipe.method_two'],
+		'method_three':request.form.get['recipe.method_three'],
+		'method_four':request.form.get['recipe.method_four'],
+	})
+	return redirect(url_for('get_recipes'))
+    
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
@@ -52,7 +80,7 @@ def recipes_recipe(recipe_id, sluggify_url):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipe.html", recipe=recipe)     
     
-    # Login
+# Login
 @app.route('/login', methods=['GET'])
 def login():
 	# Check if user is not logged in already

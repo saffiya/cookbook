@@ -30,4 +30,12 @@
     <p>{{ recipe.method_three }}</p>
     <p>{{ recipe.method_four }}</p>
 </div>
+
+<div class="button">
+    <div class="col s3">
+        <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"class="waves-effect waves-light btn btn_small"><i class="material-icons left">create</i>Edit</a>
+        <a class="waves-effect waves-light btn btn_small red"><i class="material-icons left">delete_forever</i>Delete</a>
+    </div>
+</div>
+
 {% endblock %}
