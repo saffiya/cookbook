@@ -121,7 +121,7 @@ img::-moz-selection {
         background: 0 0
     }
     #mainNav .navbar-brand {
-        padding: 10px 20px;
+        padding: 0px 0px;
         color: #fff
     }
     #mainNav .navbar-brand:focus,

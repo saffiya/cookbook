@@ -7,19 +7,19 @@
 <div class="row featurette">
 
     {% if loop.index % 2 != 0 %}
+        <div class="col-md-7">
+            <h4><a href="{{ url_for( 'recipes_recipe', recipe_id=recipe._id, sluggify_url=recipe.sluggify_url) }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
+                <h6>{{ recipe.time }} Minutes</h6>
+                <h6>Serves {{ recipe.serves }}</h6>
+                <h6>{{ recipe.difficulty }}</h6>
+                <p>
+                    {{ recipe.description }}
+                </p>
+        </div>
 
-    <div class="col-md-7">
-        <h4><a href="{{ url_for( 'recipes_recipe', recipe_id=recipe._id, sluggify_url=recipe.sluggify_url) }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
-        <h6>{{ recipe.time }}</h6>
-        <h6>Serves {{ recipe.serves }}</h6>
-        <h6>{{ recipe.difficulty }}</h6>
-        <p>
-            {{ recipe.description }}
-        </p>
-    </div>
-    <div class="col-md-5">
-        <img class="featurette-image img-responsive" src="{{ recipe.image_source }}">
-    </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" src="{{ recipe.image_source }}">
+        </div>
     {% else %}
 
     <div class="col-md-5">
@@ -27,7 +27,7 @@
     </div>
     <div class="col-md-7">
         <h4><a href="{{ url_for('recipes_recipe', recipe_id=recipe._id, sluggify_url=recipe.sluggify_url) }}">{{ loop.index }}. {{ recipe.name }}</a></h4>
-        <h6>{{ recipe.time }}</h6>
+        <h6>{{ recipe.time }} Minutes</h6>
         <h6>Serves {{ recipe.serves }}</h6>
         <h6>{{ recipe.difficulty }}</h6>
         <p>
@@ -39,21 +39,4 @@
 </div>
 <hr class="featurette-divider"> {% endfor %}
 
-<!--<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-        </li>
-    </ul>
-</nav> -->
 {% endblock %}

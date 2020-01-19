@@ -21,10 +21,6 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
     
-@app.route("/about")
-def about():
-    return render_template("about.html", page_title="About Us")
-    
 @app.route("/products")
 def products():
     return render_template("products.html", page_title="Our Products")
@@ -58,8 +54,12 @@ def update_recipe(recipe_id):
 		'method_three':request.form.get['recipe.method_three'],
 		'method_four':request.form.get['recipe.method_four'],
 	})
-	return redirect(url_for('get_recipes'))
+	return redirect(url_for('recipes'))
     
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+	mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+	return redirect(url_for('recipes'))
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
@@ -79,7 +79,7 @@ def recipes():
 def recipes_recipe(recipe_id, sluggify_url):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipe.html", recipe=recipe)     
-    
+
 # Login
 @app.route('/login', methods=['GET'])
 def login():
