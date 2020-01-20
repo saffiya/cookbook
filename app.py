@@ -61,9 +61,10 @@ def delete_recipe(recipe_id):
 	mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
 	return redirect(url_for('recipes'))
 
-@app.route('/search', methods=['GET', 'POST'])
+@app.route('/search', methods=['GET'])
 def search():
-	search = mongo.db.recipes
+	recipes = mongo.db.recipes.find({ 'name': { '$regex': request.args.get('q'), '$options': 'i' } })
+	return render_template("recipes.html", page_title="Recipes", recipes=recipes)
 	
 
 @app.route('/insert_recipe', methods=['POST'])
@@ -73,6 +74,8 @@ def insert_recipe():
     recipe_id = recipes.insert_one(request.form.to_dict())
     myrecipe = { }
     recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$set': {'sluggify_url': sluggify_url}})
+    recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$set': {'author': session['user']}})
+
     return redirect(url_for('recipes_recipe', recipe_id = recipe_id.inserted_id, sluggify_url = sluggify_url))
     
     
@@ -85,6 +88,7 @@ def recipes():
 def recipes_recipe(recipe_id, sluggify_url):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipe.html", recipe=recipe)     
+
 
 # Login
 @app.route('/login', methods=['GET'])
@@ -184,7 +188,8 @@ def profile(user):
 	if 'user' in session:
 		# If so get the user and pass him to template for now
 		user_in_db = mongo.db.users.find_one({"username": user})
-		return render_template('profile.html', user=user_in_db)
+		recipes = mongo.db.recipe.find({"author": session['user']})
+		return render_template('profile.html', user=user_in_db, recipes=recipes)
 	else:
 		flash("You must be logged in!")
 		return redirect(url_for('index'))

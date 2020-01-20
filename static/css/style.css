@@ -30,7 +30,7 @@
         background: 0 0
     }
     #mainNav .navbar-brand {
-        padding: 0px 0px;
+        padding: 0px 10px;
         color: #fff
     }
     #mainNav .navbar-brand:focus,
