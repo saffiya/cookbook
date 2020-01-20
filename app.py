@@ -38,21 +38,22 @@ def edit_recipe(recipe_id):
 	
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])	
 def update_recipe(recipe_id):
-	recipes = mongo.db.recipes
+	user_request = request.form.to_dict()
+	recipes = mongo.db.recipes 
 	recipes.update( {'_id': ObjectId(recipe_id)},
 	{
-		'name':request.form.get['recipe.name'],
-		'time':request.form.get['recipe.time'],
-		'serves':request.form.get['recipe.serves'],
-		'difficulty':request.form.get['recipe.difficulty'],
-		'category_name':request.form.get['recipe.category_name'],
-		'description':request.form.get['recipe.description'],
-		'image_source':request.form.get['recipe.image_source'],
-		'ingredients':request.form.get['recipe.ingredients'],
-		'method_one':request.form.get['recipe.method_one'],
-		'method_two':request.form.get['recipe.method_two'],
-		'method_three':request.form.get['recipe.method_three'],
-		'method_four':request.form.get['recipe.method_four'],
+		'name':user_request['name'],
+		'time':user_request['time'],
+		'serves':user_request['serves'],
+		'difficulty':user_request['difficulty'],
+		'category_name':user_request['category_name'],
+		'description':user_request['description'],
+		'image_source':user_request['image_source'],
+		'ingredients':user_request['ingredients'],
+		'method_one':user_request['method_one'],
+		'method_two':user_request['method_two'],
+		'method_three':user_request['method_three'],
+		'method_four':user_request['method_four'],
 	})
 	return redirect(url_for('recipes'))
     
@@ -65,6 +66,11 @@ def delete_recipe(recipe_id):
 def search():
 	recipes = mongo.db.recipes.find({ 'name': { '$regex': request.args.get('q'), '$options': 'i' } })
 	return render_template("recipes.html", page_title="Recipes", recipes=recipes)
+	
+@app.route('/search_ingredients', methods=['GET'])
+def search_ingredients():
+	recipes = mongo.db.recipes.find({ 'ingredients': { '$regex': request.args.get('q'), '$options': 'i' } })
+	return render_template("recipes.html", page_title="Recipes", recipes=recipes)	
 	
 
 @app.route('/insert_recipe', methods=['POST'])
