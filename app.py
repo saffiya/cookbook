@@ -61,6 +61,11 @@ def delete_recipe(recipe_id):
 	mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
 	return redirect(url_for('recipes'))
 
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+	search = mongo.db.recipes
+	
+
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     sluggify_url = slugify(request.form.get("name"))
@@ -69,6 +74,7 @@ def insert_recipe():
     myrecipe = { }
     recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$set': {'sluggify_url': sluggify_url}})
     return redirect(url_for('recipes_recipe', recipe_id = recipe_id.inserted_id, sluggify_url = sluggify_url))
+    
     
 @app.route("/recipes")
 def recipes():

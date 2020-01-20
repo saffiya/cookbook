@@ -38,7 +38,7 @@
         color: rgba(255, 255, 255, .8)
     }
     #mainNav .navbar-nav>li.nav-item>a {
-        padding: 0px 0px;
+        padding: 10px 10px;
         color: #fff
     }
     #mainNav .navbar-nav>li.nav-item>a:focus,
