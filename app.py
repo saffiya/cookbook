@@ -80,7 +80,6 @@ def insert_recipe():
     recipe_id = recipes.insert_one(request.form.to_dict())
     myrecipe = { }
     recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$set': {'sluggify_url': sluggify_url}})
-    recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$set': {'author': session['user']}})
 
     return redirect(url_for('recipes_recipe', recipe_id = recipe_id.inserted_id, sluggify_url = sluggify_url))
     
@@ -105,7 +104,7 @@ def login():
 		if user_in_db:
 			# If so redirect user to his profile
 			flash("You are logged in already!")
-			return redirect(url_for('profile', user=user_in_db['username']))
+			return redirect(url_for('recipes', user=user_in_db['username']))
 	else:
 		# Render the page for user to be able to log in
 		return render_template("login.html")
@@ -126,7 +125,7 @@ def user_auth():
 				return redirect(url_for('admin'))
 			else:
 				flash("You were logged in!")
-				return redirect(url_for('profile', user=user_in_db['username']))
+				return redirect(url_for('recipes', user=user_in_db['username']))
 			
 		else:
 			flash("Wrong password or user name!")
@@ -187,19 +186,6 @@ def logout():
 	flash('You were logged out!')
 	return redirect(url_for('index'))
 	
-# Profile Page
-@app.route('/profile/<user>')
-def profile(user): 
-	# Check if user is logged in
-	if 'user' in session:
-		# If so get the user and pass him to template for now
-		user_in_db = mongo.db.users.find_one({"username": user})
-		recipes = mongo.db.recipe.find({"author": session['user']})
-		return render_template('profile.html', user=user_in_db, recipes=recipes)
-	else:
-		flash("You must be logged in!")
-		return redirect(url_for('index'))
-    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),

@@ -3,12 +3,14 @@
 }
 
 .btn {
-   padding: 0px 0px;
+    padding: 0px 0px;
 }
-.btn_small{
+
+.btn_small {
     margin: 5px 5px;
     padding: 0 0.5em;
 }
+
 #alerts {
     position: absolute;
     display: none;
@@ -47,6 +49,52 @@
     }
 }
 
-.greenpan {
-    color: green;
+/* ------ All screens smaller then an IPad (768 x 1024)----*/
+
+/* ---- base.html dropdown navbar---- */
+
+/* ---- index.html main text---- */
+
+@media (max-width:768px) {
+    .intro-text {
+        color: #212529;
+        font-style: italic;
+        text-align: center;
+        font-size: initial;
+    }
+    #mainNav .navbar-nav>li.nav-item>a {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background-color: white;
+        color: rgba(0, 0, 0, .5);
+        padding: .0rem 1rem;
+    }
+    nav i {
+        display: block;
+        font-size: 24px;
+        height: 0px;
+        line-height: 56px;
+    }
+    button:focus {
+        outline: none;
+        background-color: #f8f9fa;
+    }
+}
+
+/* ------ All screens bigger then an IPad (768 x 1024)----*/
+
+/* ---- index.html main text---- */
+
+@media (min-width:768px) {
+    .intro-title {
+        text-align: center;
+    }
+
+    .intro-text {
+        color: #212529;
+        font-style: italic;
+        text-align: center;
+    }
 }
