@@ -43,7 +43,7 @@
                     <select multiple id="category" name="category_name" value="{{recipe.category}}" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for cat in categories %}
-                            {% if cat.category_name == recipe.category.name %}
+                            {% if cat.category_name == recipe.category_name %}
                              <option value="{{cat.category_name}}" selected >{{cat.category_name}}</option>
                             {% else %}
                              <option value="{{cat.category_name}}">{{cat.category_name}}</option>
