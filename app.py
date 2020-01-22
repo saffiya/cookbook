@@ -38,6 +38,7 @@ def edit_recipe(recipe_id):
 	
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])	
 def update_recipe(recipe_id):
+	sluggify_url = slugify(request.form.get("name"))
 	user_request = request.form.to_dict()
 	recipes = mongo.db.recipes 
 	recipes.update( {'_id': ObjectId(recipe_id)},
@@ -55,7 +56,8 @@ def update_recipe(recipe_id):
 		'method_three':user_request['method_three'],
 		'method_four':user_request['method_four'],
 	})
-	return redirect(url_for('recipes'))
+	recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id)}, {'$set': {'sluggify_url': sluggify_url}})
+	return redirect(url_for('recipes', recipe_id = recipe_id, sluggify_url = sluggify_url))
     
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
@@ -80,7 +82,6 @@ def insert_recipe():
     recipe_id = recipes.insert_one(request.form.to_dict())
     myrecipe = { }
     recipe = mongo.db.recipes.find_one_and_update({'_id': ObjectId(recipe_id.inserted_id)}, {'$set': {'sluggify_url': sluggify_url}})
-
     return redirect(url_for('recipes_recipe', recipe_id = recipe_id.inserted_id, sluggify_url = sluggify_url))
     
     
@@ -92,7 +93,8 @@ def recipes():
 @app.route("/recipes/<recipe_id>/<sluggify_url>") 
 def recipes_recipe(recipe_id, sluggify_url):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("recipe.html", recipe=recipe)     
+    return render_template("recipe.html", recipe=recipe)   
+    
 
 
 # Login

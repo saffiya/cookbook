@@ -1,5 +1,8 @@
+/*--Images used  for the recipes--*/
+
 .col-md-5 img {
-    width: inherit;
+    width: 256.16px;
+    height: 108.87px;
 }
 
 .btn {
@@ -11,20 +14,6 @@
     padding: 0 0.5em;
 }
 
-#alerts {
-    position: absolute;
-    display: none;
-    min-height: 50px;
-    top: 95%;
-    left: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-}
-
-#alerts p {
-    margin: 10px 0px;
-}
 
 @media only screen and (min-width:992px) {
     #mainNav {
@@ -61,6 +50,9 @@
         font-style: italic;
         text-align: center;
         font-size: initial;
+    }
+    .intro-title {
+        text-align: center;
     }
     #mainNav .navbar-nav>li.nav-item>a {
         font-size: 12px;
