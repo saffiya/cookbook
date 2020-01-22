@@ -169,15 +169,8 @@ def register():
 				if user_in_db:
 					# Log user in (add to session)
 					session['user'] = user_in_db['username']
-					return redirect(url_for('profile', user=user_in_db['username']))
-				else:
-					flash("There was a problem savaing your profile")
-					return redirect(url_for('register'))
-
-		else:
-			flash("Passwords dont match!")
-			return redirect(url_for('register'))
-		
+					return redirect(url_for('recipes', user=user_in_db['username']))
+				
 	return render_template("register.html")
 	
 # Log out
