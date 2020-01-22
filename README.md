@@ -2,7 +2,8 @@
 <hr>
 <p>This project aimed to create and build an interactive front-end and backend fully functioning site that responds to the user's actions allowing users to engage with the data of the site actively; using HTML, CSS, JavaScript, Python+Flask and MongoDB. The website will enable users to store and easily access cooking recipes, add new recipes to the site, edit them and delete them. As part of my defensive design, only users that have logged in will have access to add, edit and delete recipes. The site also allows users to locate recipes based on the recipes name, through the search bar located on the recipes page. Alongside the healthy recipes, I have also incorporated a products page showcasing healthy chemical-free cooking products with fully functioning images that users can click on to find more information about the product or to purchase that item. </p>
 <h2>UX</h2>
-(https://balsamiq.cloud/ssio6j2/pv0hnv0)
+<p>Click the balsamiq link for my wireframe</p>(https://balsamiq.cloud/ssio6j2/pv0hnv0)
+<p>Click the heroku link for my running site<p>(https://onlinecookboook.herokuapp.com/)
 <p>The goal for this design was to make it as easy as possible to access information on the site, using a simple, clearly structured layout; that is easy to navigate and use. The colour palette strives for simplicity and consistency. All pages have the same header throughout the site which I made using an image of spices with an overlay that dims the picture slightly, so it doesn't overpower the page and some additional text informing the user of the ability to add recipes. The remaining of the page is white so that the black text and images in the recipes standout.</p>
 <ul>The following goals are what I wanted to achieve for this website:
 <li>I wanted it to be clear and simple, so users can easily navigate through</li>
