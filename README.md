@@ -70,7 +70,7 @@
 <li>Desktop Computers</li>
 </ul>
 <p>To ensure compatibility and responsiveness, I also asked friends and family to test it across their devices to make sure it worked properly and was easy to use.</p>
-<h6>During Testing stages, I came across a few problems with my code</h6>
+<h3>During Testing stages, I came across a few problems with my code:</h3>
 <ul>
 <li>Navigation - The template was supposed to come with the navbar fully implemented and working as soon as its added to my code. However, when the site was viewed on smaller screens the navbar did not collapse as its supposed to. When you pressed the button you weren't able to see the anything and the button wasn't centered, it had a green colour to the button as well which did not look good. So i changed the css to make it look presentable and fixed all the problems it was having.</li>
 <li>Images that users had been adding were being added as the size there image was which made the page look messy and poorly structured. So i implemented a size into css that all images will show up as to stop that from occuring.</li>
