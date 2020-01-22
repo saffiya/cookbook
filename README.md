@@ -50,7 +50,7 @@
 <li>Github</li>
 <li>Heroku</li>
 </ul>
-<h2>TESTING<h2> 
+<h2>TESTING</h2> 
 <ul>The site was tested across multiple browsers:
 <li>Google Chrome </li>
 <li>Internet explorer</li>
