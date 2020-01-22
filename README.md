@@ -102,7 +102,7 @@
 <h2>ACKNOWLEDGEMENTS</h2>
 <ul>
 <li>Bootstrap helped me create the search bar</li>
-<li>Materialize helped me with my forms and any icons used in the project<li>
-<li>StartBootstrap is where I got my template for the project from<li>
+<li>Materialize helped me with my forms and any icons used in the project</li>
+<li>StartBootstrap is where I got my template for the project from</li>
 <li>I got my login, register and logout code from MiroslavSvec DCD_lead Github code. The code was slightly altered but was from his page.</li>
 </ul>
